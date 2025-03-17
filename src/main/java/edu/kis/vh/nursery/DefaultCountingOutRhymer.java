@@ -4,7 +4,7 @@ public class DefaultCountingOutRhymer {
 
     public static final int ARR_SIZE = 12;
     public static final int FALSE_AS_INT = -1;
-    final private int[] numbers = new int[ARR_SIZE];
+    private final int[] numbers = new int[ARR_SIZE];
 
     public int total = -1;
 

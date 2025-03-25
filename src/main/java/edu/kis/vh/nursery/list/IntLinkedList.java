@@ -7,7 +7,7 @@ public class IntLinkedList {
 
     private static final int IS_EMPTY = -1;
     private Node last;
-    private int i;
+    private int i;  // TODO: this variable is never used - it could be removed
 
     /**
      * Adds i to the back of the linked list

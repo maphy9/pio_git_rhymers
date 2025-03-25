@@ -1,9 +1,11 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.list.IntLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class RhymersJUnitTest {
+    // This project is valid
 
     @Test
     public void testCountIn() {
@@ -75,4 +77,31 @@ public class RhymersJUnitTest {
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
     }
 
+    @Test
+    public void testIntLinkedList() {
+        final int IS_EMPTY = -1;
+
+        IntLinkedList list = new IntLinkedList();
+
+        Assert.assertTrue(list.isEmpty());
+        Assert.assertEquals(IS_EMPTY, list.top());
+        Assert.assertEquals(IS_EMPTY, list.pop());
+
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        Assert.assertFalse(list.isEmpty());
+
+        Assert.assertEquals(3, list.top());
+        Assert.assertEquals(3, list.pop());
+        Assert.assertEquals(2, list.top());
+        Assert.assertEquals(2, list.pop());
+        Assert.assertEquals(1, list.top());
+        Assert.assertEquals(1, list.pop());
+
+        Assert.assertTrue(list.isEmpty());
+        Assert.assertEquals(IS_EMPTY, list.top());
+        Assert.assertEquals(IS_EMPTY, list.pop());
+    }
 }

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class RhymersJUnitTest {
+    // This project is valid
 
     @Test
     public void testCountIn() {

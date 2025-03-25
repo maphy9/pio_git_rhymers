@@ -1,13 +1,15 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.list.IntLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class RhymersJUnitTest {
+    // This project is valid
 
     @Test
     public void testCountIn() {
-        defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
         int testValue = 4;
         rhymer.countIn(testValue);
 
@@ -17,7 +19,7 @@ public class RhymersJUnitTest {
 
     @Test
     public void testCallCheck() {
-        defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
         boolean result = rhymer.callCheck();
         Assert.assertEquals(true, result);
 
@@ -29,7 +31,7 @@ public class RhymersJUnitTest {
 
     @Test
     public void testIsFull() {
-        defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
         final int STACK_CAPACITY = 12;
         for (int i = 0; i < STACK_CAPACITY; i++) {
             boolean result = rhymer.isFull();
@@ -43,7 +45,7 @@ public class RhymersJUnitTest {
 
     @Test
     public void testPeekaboo() {
-        defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
         final int EMPTY_STACK_VALUE = -1;
 
         int result = rhymer.peekaboo();
@@ -60,7 +62,7 @@ public class RhymersJUnitTest {
 
     @Test
     public void testCountOut() {
-        defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
         final int EMPTY_STACK_VALUE = -1;
 
         int result = rhymer.countOut();
@@ -75,4 +77,31 @@ public class RhymersJUnitTest {
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
     }
 
+    @Test
+    public void testIntLinkedList() {
+        final int IS_EMPTY = -1;
+
+        IntLinkedList list = new IntLinkedList();
+
+        Assert.assertTrue(list.isEmpty());
+        Assert.assertEquals(IS_EMPTY, list.top());
+        Assert.assertEquals(IS_EMPTY, list.pop());
+
+        list.push(1);
+        list.push(2);
+        list.push(3);
+
+        Assert.assertFalse(list.isEmpty());
+
+        Assert.assertEquals(3, list.top());
+        Assert.assertEquals(3, list.pop());
+        Assert.assertEquals(2, list.top());
+        Assert.assertEquals(2, list.pop());
+        Assert.assertEquals(1, list.top());
+        Assert.assertEquals(1, list.pop());
+
+        Assert.assertTrue(list.isEmpty());
+        Assert.assertEquals(IS_EMPTY, list.top());
+        Assert.assertEquals(IS_EMPTY, list.pop());
+    }
 }
